@@ -16,13 +16,129 @@
 
     <Pivot Title="Student Address Book" FontFamily="Misans">
         <PivotItem Header="主页">
-            <TextBlock Text="all emails go here.123456789" />
+            <Grid
+                Margin="10,10,10,30"
+                ColumnSpacing="20"
+                RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="600" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0,0,0,5"
+                    FontSize="30"
+                    Text="输出信息" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontSize="17"
+                    IsReadOnly="True"
+                    IsSpellCheckEnabled="True"
+                    Text="这是一个只读的输出文本框"
+                    TextWrapping="Wrap" />
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    FontSize="30"
+                    Text="功能按钮" />
+
+                <Grid
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="20"
+                    ColumnSpacing="20"
+                    RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="Exit"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Width="107"
+                        Click="Exit_Click"
+                        Content="退出系统" />
+
+                    <Button
+                        x:Name="Create"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Click="Create_Click"
+                        Content="新建学生信息" />
+                    <Button
+                        x:Name="Insert"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Click="Insert_Click"
+                        Content="插入学生信息" />
+                    <Button
+                        x:Name="Delete"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Click="Delete_Click"
+                        Content="删除学生信息" />
+                    <Button
+                        x:Name="ReadCsv"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Click="Read_Click"
+                        Content="读取学生信息" />
+                    <Button
+                        x:Name="WriteCsv"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Click="Write_Click"
+                        Content="写出学生信息" />
+                    <Button
+                        x:Name="Search"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Click="Search_Click"
+                        Content="查询学生信息" />
+                    <Button
+                        x:Name="Print"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Click="Print_Click"
+                        Content="打印学生信息" />
+                </Grid>
+                <InfoBar
+                    x:Name="initial_info"
+                    Title="欢迎使用本程序"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    IsClosable="True"
+                    IsOpen="True"
+                    Message="提示"
+                    Severity="Informational" />
+            </Grid>
+
+
+
         </PivotItem>
 
         <PivotItem Header="关于">
 
             <StackPanel
-                Width="auto"
+                Width="Auto"
                 Margin="10"
                 Orientation="Vertical">
                 <TextBlock FontSize="35" Text="这是一个使用Windows App SDK 1.2创建的WinUI 3应用" />
@@ -31,7 +147,7 @@
                     Grid.Row="2"
                     Margin="-12,8,0,0"
                     VerticalContentAlignment="Center"
-                    NavigateUri="https://github.com/StandardL">
+                    NavigateUri="https://github.com/StandardL/StudentAddressBook">
                     <RelativePanel>
                         <ImageIcon
                             x:Name="GoToGithub_Button_Icon"
@@ -49,7 +165,16 @@
                     FontSize="25"
                     Text="更新日志：" />
                 <TextBlock
-                    x:Name="Latest_update"
+                    x:Name="Second_update"
+                    FontSize="20"
+                    Text="2022/12/01更新：" />
+                <RichTextBlock>
+                    <Paragraph>1.主页添加Grid设计控件</Paragraph>
+                    <Paragraph>2.添加首次进入软件的提示信息</Paragraph>
+                    <Paragraph>3.创建Github页面</Paragraph>
+                </RichTextBlock>
+                <TextBlock
+                    x:Name="One_update"
                     FontSize="20"
                     Text="2022/11/30更新：" />
                 <RichTextBlock>

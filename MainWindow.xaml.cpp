@@ -31,3 +31,47 @@ namespace winrt::__Final_StudentAddressBook::implementation
     }
 
 }
+
+
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Create_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Insert_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Print_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Delete_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Exit_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Search_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Write_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
+
+void winrt::__Final_StudentAddressBook::implementation::MainWindow::Read_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+
+}
