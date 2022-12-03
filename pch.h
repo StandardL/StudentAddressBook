@@ -6,6 +6,7 @@
 #include <unknwn.h>
 #include <restrictederrorinfo.h>
 #include <hstring.h>
+#pragma execution_character_set("utf-8")
 
 // Undefine GetCurrentTime macro to prevent
 // conflict with Storyboard::GetCurrentTime
@@ -31,3 +32,16 @@
 #include <winrt/Microsoft.UI.Composition.SystemBackdrops.h>
 #include <winrt/Windows.System.h>
 #include <dispatcherqueue.h>
+
+//获取桌面绝对路径所需头文件
+#include "windows.h"
+#include "shlobj.h"
+#include <ShlObj.h> //SHGetSpecialFolderPath
+#include <iostream>
+#include <string>
+#include <stdio.h>
+
+//二叉搜索树树所需头文件
+#include <fstream>
+#include <sstream>
+#include <iomanip>
