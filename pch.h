@@ -31,3 +31,8 @@
 #include <winrt/Microsoft.UI.Composition.SystemBackdrops.h>
 #include <winrt/Windows.System.h>
 #include <dispatcherqueue.h>
+
+//获取桌面绝对路径所需头文件
+#include <shlobj.h>
+#include <iostream>
+#include <string>

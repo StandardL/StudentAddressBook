@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation and Contributors.
+﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
 #pragma once
@@ -12,6 +12,7 @@ namespace winrt
     namespace MUX = Microsoft::UI::Xaml;
     namespace WS = Windows::System;
 }
+using std::string;
 
 namespace winrt::__Final_StudentAddressBook::implementation
 {
@@ -32,7 +33,7 @@ namespace winrt::__Final_StudentAddressBook::implementation
 
             SetBackground();
 
-            Title(L"ѧ��ͨѶ¼(WinUI3)");
+            Title(L"学生通讯录(WinUI3)");
 
             m_closedRevoker = this->Closed(winrt::auto_revoke, [&](auto&&, auto&&)
                 {
@@ -48,6 +49,16 @@ namespace winrt::__Final_StudentAddressBook::implementation
                 m_dispatcherQueueController = nullptr;
             }
                 });
+
+           // //Resize window
+           // winrt::Windows::Graphics::SizeInt32 windowSize;
+           // windowSize.Height = 1280;
+           // windowSize.Width = 720;
+
+           ///* Window window = e.Parameter().as<Window>();
+           // MainWindow mainWindow = window.as<MainWindow>();
+           // AppWindow appWindow = mainWindow.MyAppWindow();
+           // m_mainAppWindow = appWindow;*/
         }
 
         void SetBackground()
@@ -136,6 +147,10 @@ namespace winrt::__Final_StudentAddressBook::implementation
                 return winrt::MUCSB::SystemBackdropTheme::Default;
             }
         }
+        //End of Mica Definition
+        
+        
+
 
         int32_t MyProperty();
         void MyProperty(int32_t value);
@@ -150,6 +165,41 @@ namespace winrt::__Final_StudentAddressBook::implementation
         void Search_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void Write_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void Read_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
+        void insert_content_PrimaryButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void insert_content_CloseButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void insert_TextChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::TextChangedEventArgs const& e);
+        void delete_content_CloseButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void delete_content_PrimaryButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+
+        //自定义函数
+        void check_insert();//控制确定按钮是否可按
+        string  getDesktopPath()  //获取桌面绝对路径.
+        {
+            LPITEMIDLIST pidl;
+            LPMALLOC pShellMalloc;
+            char szDir[1000];
+            if (SUCCEEDED(SHGetMalloc(&pShellMalloc)))
+            {
+                if (SUCCEEDED(SHGetSpecialFolderLocation(NULL, CSIDL_DESKTOP, &pidl))) {
+                    // 如果成功返回true  
+                    SHGetPathFromIDListA(pidl, szDir);
+                    pShellMalloc->Free(pidl);
+                }
+                pShellMalloc->Release();
+            }
+
+            return string(szDir);
+        }
+        void delete_key_TextChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::TextChangedEventArgs const& e);
+        void search_content_CloseButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void search_content_PrimaryButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void search_key_TextChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::TextChangedEventArgs const& e);
+        void create_content_CloseButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void create_content_PrimaryButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void create_TextChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::TextChangedEventArgs const& e);
+        void create_nums_TextChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::TextChangedEventArgs const& e);
+        void nums_content_CloseButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
+        void nums_content_PrimaryButtonClick(winrt::Microsoft::UI::Xaml::Controls::ContentDialog const& sender, winrt::Microsoft::UI::Xaml::Controls::ContentDialogButtonClickEventArgs const& args);
 };
 }
 

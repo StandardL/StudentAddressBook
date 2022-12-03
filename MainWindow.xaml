@@ -44,7 +44,7 @@
                     IsSpellCheckEnabled="True"
                     Text="这是一个只读的输出文本框"
                     TextWrapping="Wrap" />
-
+                <!--  功能按钮定义区域  -->
                 <TextBlock
                     Grid.Row="0"
                     Grid.Column="1"
@@ -120,8 +120,9 @@
                         Click="Print_Click"
                         Content="打印学生信息" />
                 </Grid>
+                <!--  提示Bar（主要使用）  -->
                 <InfoBar
-                    x:Name="initial_info"
+                    x:Name="infobar_main"
                     Title="欢迎使用本程序"
                     Grid.Row="3"
                     Grid.Column="2"
@@ -129,6 +130,201 @@
                     IsOpen="True"
                     Message="提示"
                     Severity="Informational" />
+                <InfoBar x:Name="success_info" Severity="Success" />
+                <InfoBar x:Name="fail_info" Severity="Error" />
+                <InfoBar x:Name="warning_info" Severity="Warning" />
+                <InfoBar x:Name="default_info" Severity="Informational" />
+                <!--  插入弹框  -->
+                <ContentDialog
+                    x:Name="insert_content"
+                    Title="插入学生信息"
+                    CloseButtonClick="insert_content_CloseButtonClick"
+                    CloseButtonText="取消"
+                    PrimaryButtonClick="insert_content_PrimaryButtonClick"
+                    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+                    PrimaryButtonText="确定">
+                    <Grid RowSpacing="6">
+                        <!--  学号 姓名 地址 生日 性别 电话  -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            x:Name="insert_key"
+                            Grid.Row="0"
+                            PlaceholderText="学号"
+                            TextChanged="insert_TextChanged" />
+                        <TextBox
+                            x:Name="insert_name"
+                            Grid.Row="1"
+                            PlaceholderText="姓名"
+                            TextChanged="insert_TextChanged" />
+                        <TextBox
+                            x:Name="insert_address"
+                            Grid.Row="2"
+                            PlaceholderText="地址"
+                            TextChanged="insert_TextChanged" />
+                        <TextBox
+                            x:Name="insert_birth"
+                            Grid.Row="3"
+                            PlaceholderText="生日"
+                            TextChanged="insert_TextChanged" />
+                        <TextBox
+                            x:Name="insert_gender"
+                            Grid.Row="4"
+                            PlaceholderText="性别"
+                            TextChanged="insert_TextChanged" />
+                        <TextBox
+                            x:Name="insert_tele"
+                            Grid.Row="5"
+                            PlaceholderText="电话"
+                            TextChanged="insert_TextChanged" />
+                    </Grid>
+                </ContentDialog>
+                <!--  删除弹窗  -->
+                <ContentDialog
+                    x:Name="delete_content"
+                    Title="删除学生信息"
+                    CloseButtonClick="delete_content_CloseButtonClick"
+                    CloseButtonText="取消"
+                    PrimaryButtonClick="delete_content_PrimaryButtonClick"
+                    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+                    PrimaryButtonText="确定">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            x:Name="delete_key"
+                            PlaceholderText="学号"
+                            TextChanged="delete_key_TextChanged" />
+                    </Grid>
+                </ContentDialog>
+                <!--  查询弹窗  -->
+                <ContentDialog
+                    x:Name="search_content"
+                    Title="查询学生信息"
+                    CloseButtonClick="search_content_CloseButtonClick"
+                    CloseButtonText="取消"
+                    PrimaryButtonClick="search_content_PrimaryButtonClick"
+                    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+                    PrimaryButtonText="确定">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            x:Name="search_key"
+                            PlaceholderText="学号"
+                            TextChanged="search_key_TextChanged" />
+                    </Grid>
+                </ContentDialog>
+                <!--  写出文件提示弹窗  -->
+                <ContentDialog
+                    x:Name="write_content"
+                    Title="写出文件"
+                    CloseButtonStyle="{StaticResource AccentButtonStyle}"
+                    CloseButtonText="了解">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="write_text" />
+                    </Grid>
+                </ContentDialog>
+                <!--  读入文件提示弹窗  -->
+                <ContentDialog
+                    x:Name="read_content"
+                    Title="读取文件"
+                    CloseButtonStyle="{StaticResource AccentButtonStyle}"
+                    CloseButtonText="了解">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="read_text" />
+                    </Grid>
+                </ContentDialog>
+                <!--  创建弹框  -->
+                <ContentDialog
+                    x:Name="create_content"
+                    Title="新建学生信息"
+                    CloseButtonClick="create_content_CloseButtonClick"
+                    CloseButtonText="取消"
+                    PrimaryButtonClick="create_content_PrimaryButtonClick"
+                    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+                    PrimaryButtonText="确定">
+                    <Grid RowSpacing="6">
+                        <!--  学号 姓名 地址 生日 性别 电话  -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            x:Name="create_key"
+                            Grid.Row="0"
+                            PlaceholderText="学号"
+                            TextChanged="create_TextChanged" />
+                        <TextBox
+                            x:Name="create_name"
+                            Grid.Row="1"
+                            PlaceholderText="姓名"
+                            TextChanged="create_TextChanged" />
+                        <TextBox
+                            x:Name="create_address"
+                            Grid.Row="2"
+                            PlaceholderText="地址"
+                            TextChanged="create_TextChanged" />
+                        <TextBox
+                            x:Name="create_birth"
+                            Grid.Row="3"
+                            PlaceholderText="生日"
+                            TextChanged="create_TextChanged" />
+                        <TextBox
+                            x:Name="create_gender"
+                            Grid.Row="4"
+                            PlaceholderText="性别"
+                            TextChanged="create_TextChanged" />
+                        <TextBox
+                            x:Name="create_tele"
+                            Grid.Row="5"
+                            PlaceholderText="电话"
+                            TextChanged="create_TextChanged" />
+                    </Grid>
+                </ContentDialog>
+                <!--  创建学生文本数量的弹窗  -->
+                <ContentDialog
+                    x:Name="nums_content"
+                    Title="新建学生通讯录"
+                    CloseButtonClick="nums_content_CloseButtonClick"
+                    CloseButtonText="取消"
+                    PrimaryButtonClick="nums_content_PrimaryButtonClick"
+                    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+                    PrimaryButtonText="确定">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="输入需要创建的学生数量（不少于10条）" />
+                        <TextBox
+                            x:Name="create_nums"
+                            PlaceholderText="输入不小于10的整数"
+                            TextChanged="create_nums_TextChanged" />
+                    </Grid>
+                </ContentDialog>
             </Grid>
 
 
@@ -164,6 +360,22 @@
                     x:Name="Update_info"
                     FontSize="25"
                     Text="更新日志：" />
+                <TextBlock
+                    x:Name="forth_update"
+                    FontSize="20"
+                    Text="2022/12/03更新：" />
+                <RichTextBlock>
+                    <Paragraph>1.完善各个功能的弹框</Paragraph>
+                    <Paragraph>2.添加获取桌面路径信息</Paragraph>
+                    <Paragraph />
+                </RichTextBlock>
+                <TextBlock
+                    x:Name="third_update"
+                    FontSize="20"
+                    Text="2022/12/02更新：" />
+                <RichTextBlock>
+                    <Paragraph>1.插入界面添加ContentDialog</Paragraph>
+                </RichTextBlock>
                 <TextBlock
                     x:Name="Second_update"
                     FontSize="20"
