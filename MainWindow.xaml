@@ -356,13 +356,21 @@
                     FontSize="25"
                     Text="更新日志：" />
                 <TextBlock
+                    x:Name="fifth_update"
+                    FontSize="20"
+                    Text="2022/12/05更新：" />
+                <RichTextBlock>
+                    <Paragraph>1.完善各个功能</Paragraph>
+                    <Paragraph>2.因C++/WinRT屏蔽了相应接口，删除获取桌面路径信息</Paragraph>
+                    <Paragraph>3.至此，本程序的大致功能已经开发完毕，只剩下一些小问题待修复</Paragraph>
+                </RichTextBlock>
+                <TextBlock
                     x:Name="forth_update"
                     FontSize="20"
                     Text="2022/12/03更新：" />
                 <RichTextBlock>
                     <Paragraph>1.完善各个功能的弹框</Paragraph>
                     <Paragraph>2.添加获取桌面路径信息</Paragraph>
-                    <Paragraph />
                 </RichTextBlock>
                 <TextBlock
                     x:Name="third_update"
